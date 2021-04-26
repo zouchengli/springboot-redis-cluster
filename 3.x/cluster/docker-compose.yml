@@ -1,0 +1,107 @@
+version: "3"
+
+services:
+  redis1:
+    container_name: redis1
+    image: redis:3.2.12-alpine
+    environment:
+      TZ: Asia/Shanghai
+      POD_IP: ${IP}
+    ports:
+    - 7001:7001
+    - 17001:17001
+    networks:
+      - cluster
+    volumes:
+      - ./7001/redis.conf:/conf/redis.conf
+      - ./update-node.sh:/conf/update-node.sh
+      - ./7001/data:/data
+    command: ["/conf/update-node.sh", "redis-server", "/conf/redis.conf"]
+    restart: always
+  redis2:
+    container_name: redis2
+    image: redis:3.2.12-alpine
+    environment:
+      TZ: Asia/Shanghai
+      POD_IP: ${IP}
+    ports:
+      - 7002:7002
+      - 17002:17002
+    networks:
+      - cluster
+    volumes:
+      - ./7002/redis.conf:/conf/redis.conf
+      - ./update-node.sh:/conf/update-node.sh
+      - ./7002/data:/data
+    command: ["/conf/update-node.sh", "redis-server", "/conf/redis.conf"]
+    restart: always
+  redis3:
+    container_name: redis3
+    image: redis:3.2.12-alpine
+    environment:
+      TZ: Asia/Shanghai
+      POD_IP: ${IP}
+    ports:
+      - 7003:7003
+      - 17003:17003
+    networks:
+      - cluster
+    volumes:
+      - ./7003/redis.conf:/conf/redis.conf
+      - ./update-node.sh:/conf/update-node.sh
+      - ./7003/data:/data
+    command: ["/conf/update-node.sh", "redis-server", "/conf/redis.conf"]
+    restart: always
+  redis4:
+    container_name: redis4
+    image: redis:3.2.12-alpine
+    environment:
+      TZ: Asia/Shanghai
+      POD_IP: ${IP}
+    ports:
+      - 7004:7004
+      - 17004:17004
+    networks:
+      - cluster
+    volumes:
+      - ./7004/redis.conf:/conf/redis.conf
+      - ./update-node.sh:/conf/update-node.sh
+      - ./7004/data:/data
+    command: ["/conf/update-node.sh", "redis-server", "/conf/redis.conf"]
+    restart: always
+  redis5:
+    container_name: redis5
+    image: redis:3.2.12-alpine
+    environment:
+      TZ: Asia/Shanghai
+      POD_IP: ${IP}
+    ports:
+      - 7005:7005
+      - 17005:17005
+    networks:
+      - cluster
+    volumes:
+      - ./7005/redis.conf:/conf/redis.conf
+      - ./update-node.sh:/conf/update-node.sh
+      - ./7005/data:/data
+    command: ["/conf/update-node.sh", "redis-server", "/conf/redis.conf"]
+    restart: always
+  redis6:
+    container_name: redis6
+    image: redis:3.2.12-alpine
+    environment:
+      TZ: Asia/Shanghai
+      POD_IP: ${IP}
+    ports:
+      - 7006:7006
+      - 17006:17006
+    networks:
+      - cluster
+    volumes:
+      - ./7006/redis.conf:/conf/redis.conf
+      - ./update-node.sh:/conf/update-node.sh
+      - ./7006/data:/data
+    command: ["/conf/update-node.sh", "redis-server", "/conf/redis.conf"]
+    restart: always
+networks:
+  cluster:

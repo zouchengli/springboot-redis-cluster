@@ -3,7 +3,6 @@ package site.clzblog.springboot.redis.cluster;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class SpringbootRedisClusterApplication {
+public class Application {
     private final StringRedisTemplate stringRedisTemplate;
 
     @Autowired
-    public SpringbootRedisClusterApplication(StringRedisTemplate stringRedisTemplate) {
+    public Application(StringRedisTemplate stringRedisTemplate) {
         this.stringRedisTemplate = stringRedisTemplate;
     }
 
@@ -31,7 +30,7 @@ public class SpringbootRedisClusterApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootRedisClusterApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
