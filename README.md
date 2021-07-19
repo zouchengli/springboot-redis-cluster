@@ -21,3 +21,14 @@ sh init_cluster.sh
 cd 3.x/cluster
 sh create.sh
 ```
+## 5.x version
+```shell
+cd 5.x/cluster
+sh create.sh
+```
+
+# Helm install
+## 5.x version
+```shell
+sh helm/install.sh
+```
