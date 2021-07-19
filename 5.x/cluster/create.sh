@@ -1,0 +1,1 @@
+docker run -d -e "IP=0.0.0.0" -p 7000-7005:7000-7005 --name rc5 --restart always grokzen/redis-cluster:5.0.9
